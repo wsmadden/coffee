@@ -1,0 +1,40 @@
+{
+  "templates": [
+    {
+      "name": "Stories Listing",
+      "urls": ["https://www.starbucksreserve.com/stories"],
+      "description": "Story listing page with hero header, category filters, and story card grid",
+      "blocks": [
+        {
+          "name": "cards-stories",
+          "instances": [".feed_list", ".featured-feed_component .feed_list-wrapper"],
+          "section": "main"
+        }
+      ],
+      "sections": [
+        {
+          "name": "hero-header",
+          "selector": ".section_header",
+          "style": "dark-green",
+          "content": "default"
+        },
+        {
+          "name": "category-filters",
+          "selector": ".section_story-filters",
+          "style": "light",
+          "content": "default"
+        },
+        {
+          "name": "story-cards",
+          "selector": ".section_featured-feed",
+          "style": "light",
+          "content": "block"
+        }
+      ],
+      "metadata": {
+        "title": ".section_header h1",
+        "description": ".section_header .text-style-subheading"
+      }
+    }
+  ]
+}
