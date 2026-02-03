@@ -77,7 +77,7 @@
 }
 
 body {
-  display: none;
+  display: block;
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -263,39 +263,52 @@ main .section.highlight {
 }
 
 /* Dark green section (Starbucks Reserve hero style) */
-main .section.dark-green {
+/* Works with both decorated (.section.dark-green) and raw HTML (first div with section-metadata) */
+main .section.dark-green,
+main > div:first-child:has(.section-metadata) {
   background-color: var(--color-dark-green);
   color: white;
   margin: 0;
-  padding: 80px 0;
+  padding: 80px 24px;
   text-align: center;
 }
 
-main .section.dark-green h1 {
+main .section.dark-green h1,
+main > div:first-child:has(.section-metadata) h1 {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
+  color: white;
 }
 
-main .section.dark-green p {
+main .section.dark-green p,
+main > div:first-child:has(.section-metadata) p {
   font-style: italic;
   font-size: 16px;
   font-weight: 300;
   margin: 0;
+  color: white;
 }
 
-main .section.dark-green em {
+main .section.dark-green em,
+main > div:first-child:has(.section-metadata) em {
   font-style: italic;
 }
 
-/* Category filter links */
+/* Hide section-metadata block from display */
+.section-metadata {
+  display: none;
+}
+
+/* Category filter links (second section) */
 main > div:nth-child(2) {
   text-align: center;
-  padding: 24px 0;
+  padding: 24px;
   border-bottom: 1px solid #e5e5e5;
   margin: 0 auto 40px;
+  max-width: 1200px;
 }
 
 main > div:nth-child(2) p {
@@ -317,7 +330,15 @@ main > div:nth-child(2) a:hover {
   text-decoration: none;
 }
 
+/* Cards section (third section) */
+main > div:nth-child(3) {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
 /* Metadata block (hide from display) */
-main .metadata {
+main .metadata,
+main > div:last-child:has(.metadata) {
   display: none;
 }
